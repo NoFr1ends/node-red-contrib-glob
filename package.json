@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-glob",
+  "version": "1.0.2",
+  "author": {
+    "name": "Jonas Bernemann",
+    "email": "jonas.bernemann@consense-consulting.de"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node-red",
+    "glob",
+    "recursive",
+    "file",
+    "ls"
+  ],
+  "bugs": {
+    "url": "https://github.com/NoFr1ends/node-red-contrib-glob/issues"
+  },
+  "homepage": "https://github.com/NoFr1ends/node-red-contrib-glob",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NoFr1ends/node-red-contrib-glob.git"
+  },
+  "node-red": {
+    "nodes": {
+      "glob": "glob.js"
+    }
+  },
+  "dependencies": {
+    "glob": "^7.1.6"
+  }
+}

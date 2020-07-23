@@ -1,0 +1,91 @@
+<script type="text/javascript">
+    RED.nodes.registerType('glob',{
+        category: 'storage',
+        color: 'burlywood',
+        defaults: {
+            name:{value: ""},
+            pattern:{value: "", required: true},
+            patternType: {value: 'str'},
+            path:{value: ""},
+            pathType: {value: 'str'},
+            property: {value: 'payload'},
+            output: {value: 'messages'},
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"Glob";
+        },
+        oneditprepare: function() {
+            if (!this.patternType) {
+                this.patternType = 'str';
+            }
+            $("#node-input-pattern").typedInput({
+                default: 'str',
+                types: ['str','msg','flow','global','env'],
+                typeField: $("#node-input-patternType")
+            });
+
+            if (!this.pathType) {
+                this.pathType = 'str';
+            }
+            $("#node-input-path").typedInput({
+                default: 'str',
+                types: ['str','msg','flow','global','env'],
+                typeField: $("#node-input-pathType")
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="glob">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-pattern"><i class="fa fa-search"></i> Pattern</label>
+        <input type="text" id="node-input-pattern">
+        <input type="hidden" id="node-input-patternType">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-path"><i class="fa fa-folder"></i> Path</label>
+        <input type="text" id="node-input-path" placeholder="(optional)">
+        <input type="hidden" id="node-input-pathType">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-property"><i class="fa fa-edit"></i> Property</label>
+        <input type="text" id="node-input-property" placeholder="property">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-output"><i class="fa fa-sign-out"></i> Output</label>
+        <select id="node-input-output">
+            <option value="messages">One message per file</option>
+            <option value="array">a single message [array]</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="glob">
+    <p>Query files in the given directory by the given pattern (glob syntax)</p>
+
+    <h3>Details</h3>
+    <dl class="message-properties">
+        <dt class="optional">name</dt>
+        <dd>Name of node to be displayed in editor</dd>
+
+        <dt>pattern</dt>
+        <dd>Pattern to query for (glob syntax)</dd>
+
+        <dt class="optional">path</dt>
+        <dd>Directory in which the glob should be executed. If non is provided the current working directory will be used.</dd>
+
+        <dt>property</dt>
+        <dd>In which property the file path should be stored in.</dd>
+    </dl>
+</script>
