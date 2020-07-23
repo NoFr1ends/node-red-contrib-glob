@@ -59,7 +59,7 @@ module.exports = function(RED) {
         p = path.normalize(path.join(p, filename));
         const file = path.basename(p);
         const filedir = path.dirname(p);
-        return {filname: p, file, filedir};
+        return {filename: p, file, filedir};
     }
 
     RED.nodes.registerType("glob", GlobNode);

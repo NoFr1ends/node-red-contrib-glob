@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-glob",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": {
     "name": "Jonas Bernemann",
     "email": "jonas.bernemann@consense-consulting.de"
