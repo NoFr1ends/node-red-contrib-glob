@@ -10,6 +10,7 @@
             pathType: {value: 'str'},
             property: {value: 'payload'},
             output: {value: 'messages'},
+            includeDirs: {value: false},
         },
         inputs: 1,
         outputs: 1,
@@ -68,6 +69,11 @@
             <option value="messages">One message per file</option>
             <option value="array">a single message [array]</option>
         </select>
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-includeDirs"><i class="fa fa-folder"></i> Include Dirs</label>
+        <input type="checkbox" value="true" id="node-input-includeDirs" style="display: inline-block; width: auto; vertical-align: top;"/>
     </div>
 </script>
 

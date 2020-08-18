@@ -12,6 +12,7 @@ module.exports = function(RED) {
         this.pathType = config.pathType || "str";
         this.property = config.property || "payload";
         this.output = config.output || "messages";
+        this.includeDirs = config.includeDirs || false;
 
         const node = this;
         node.on("input", (msg, send, done) => {
@@ -26,7 +27,7 @@ module.exports = function(RED) {
 
             Glob(pattern, {
                 cwd: path,
-                nodir: true
+                nodir: !node.includeDirs
             }, (err, matches) => {
                 if(err) {
                     node.error(err, msg);
